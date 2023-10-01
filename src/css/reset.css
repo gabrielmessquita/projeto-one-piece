@@ -1,0 +1,9 @@
+* {
+    margin: 0;   /*retirar as margens padrao do navegador*/
+    padding: 0;  /*espacamento interno aos elementos*/
+    box-sizing: border-box;  /*reajustar dimensoes etc, medidas*/
+}
+
+ul {
+    list-style: none;  /*retirar as bolinhas*/
+}

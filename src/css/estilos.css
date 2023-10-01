@@ -1,0 +1,87 @@
+body {
+    background-color: #000000; /*combinacao de 3cores da um exadecimal*/
+    overflow: hidden;            /*fica sem aquela rolagem vertical ao passar o scroll*/  
+}
+main::after {                    /*estilo para pseudo elemento*/
+    content: "";            /* adicionando um conteudo para o elemento after, fica dps da main*/
+    position: fixed;             /*ele nao existe no html, mas colocamos atraves do css*/
+    top: 0%;
+    left: 0%;
+    min-height: 100vh;
+    width: 80vw;
+    background: linear-gradient(-233deg, #000 40%, rgba(0,0,0,0) 65%) no-repeat;
+
+}                      
+main .personagem {
+    display: none;  /*esconde os perssonagens*/
+    height: 100vh;
+}
+main .personagem.selecionado {   /*nao pode ter espaco entre personagem e selecionado, pois selecionado NAO é um elemento que esta dentro de personagem*/
+    display: block;
+}
+main .personagem .imagem{   /*o espaco diz que a classe imagem ta dentro de personagem*/
+    width: 100%;            /*vh serve para ajustar a imagem ao dispositivo dos usuarios*/
+    height: 100%;
+    object-fit: cover;      /*mantem as dimensoes da imagem e cubra o elemento personagem*/
+}
+main .personagem .conteudo {
+    position: absolute;       /*posiciona um elemento de forma absoluta na pagina,fica por cima de tudo*/
+    top: 0%;
+    left: 120px;
+    
+    display: flex;            /*pesquisar sobre, basicamente deixa um elemento ao lado do outro*/
+    flex-direction: column;   /*propriedade do flex, vem padrao:row, porem usa colmn para ficar em coluna*/
+    justify-content: center;  /*propriedade p/ alinhar o conteudo verticalmente*/
+    min-height: 100vh;        /*pra alinhar é necessario ter esse espaço disponivel, analogia sapato caixa*/
+    max-width: 380px;         /*max de largura*/
+    z-index: 1;               /*eixo Z, de profundidade, quanto maior o zindex, ele(conteudo) fica em cima dos outros, foi usado para ficar por cima do degrade que estava  cobrindo esse conteudo*/
+}
+main .personagem .conteudo .nome-personagem {
+    color: #ffffff;
+    font-size: 48px;
+    font-family:"Secular One"; /*fonte importada do google e lincada no html*/
+    font-weight: 400;
+    margin-bottom: 20px;       /*margem/espaco abaixo do nome empurrando o outro elemento mais pra baixo*/
+}
+main .personagem .conteudo .descricao {
+    color: #ffffff;
+    font-family:"Rubik";
+    line-height: 24px;    /*altura entre as linhas*/
+}
+main .personagem .conteudo .logo {
+    background-image: url("../imagens/one-piece-logo.png"); /* o ../ serve pra voltar uma pasta*/
+    background-size: cover;                                 /*o tam do background vai cobrir a area*/
+    height: 100px;                                          /*dando altura para ele aparecer na tela*/
+    width: 230px;
+    margin-bottom: 35px;
+}
+
+body .botoes {
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    display: flex;              /*esse displayflex permite utilizar essas propriedades abaixo*/
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center;    /*alinhamento vertical*/
+    align-items: center;        /*alinhamento horizontal*/
+    gap: 10px;
+}
+
+body .botoes .botao {
+    border: none;
+    background: #000000;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+body .botoes .botao img{
+    border-radius: 50%;      /*borda redonda*/
+}
+
+body .botoes .botao.selecionado {
+    transform: scale(1.2);          /*tamanho do botao destaque*/
+    box-shadow: 0 0 10px #d9d9d9; /*cor da borda*/
+}
